@@ -1,24 +1,34 @@
-# README
+# DB設計
+# Usersテーブル
+nickname
+email
+password
+last_name
+last_name_read
+first_name
+first_name_read
+birthday
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Itemsテーブル
+item
+text
+price
+category_id
+status_id
+charge_id
+prefecture_id
+days_id
+user
 
-Things you may want to cover:
+# Ordersテーブル
+user
+item
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Addressesテーブル
+postal_cord
+prefecture_id
+city
+address
+building_name
+phone_number
+order
