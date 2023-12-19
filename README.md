@@ -9,6 +9,11 @@ first_name
 first_name_read
 birthday
 
+### Association
+
+- has_many :items
+- has_many :orders
+
 # Itemsテーブル
 item
 text
@@ -20,9 +25,19 @@ prefecture_id
 days_id
 user
 
+### Association
+- has_one :order
+- belongs_to :user
+
 # Ordersテーブル
 user
 item
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
 # Addressesテーブル
 postal_cord
@@ -32,3 +47,7 @@ address
 building_name
 phone_number
 order
+
+### Association
+
+- belongs_to :order
