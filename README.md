@@ -54,11 +54,13 @@
 
 |  Column          |  Type      |  Options                       |
 | ---------------- | ---------- | ------------------------------ |
-| postal_cord      | string     | null: false                    |
+| card_info        | string     | null: false                    |
+| year             | integer    | null: false                    |
+| security         | integer    | null: false                    |
 | prefecture_id    | integer    | null: false                    |
 | city             | string     | null: false                    |
-| address          | string     | null: false                    |
-| building_name    | string     |                                |
+| street           | string     | null: false                    |
+| building_name    | string     | null: false                    |
 | phone_number     | string     | null: false                    |
 | order            | references | null: false, foreign_key: true |
 
