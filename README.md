@@ -1,37 +1,48 @@
-# DB設計
-# Usersテーブル
-nickname
-email
-password
-last_name
-last_name_read
-first_name
-first_name_read
-birthday
+# テーブル設計
+
+## Usersテーブル
+
+|  Column            |  Type   |  Options                  |
+| ------------------ | ------- | ------------------------- |
+| nickname           | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| last_name          | string  | null: false               |
+| last_name_read     | string  | null: false               |
+| first_name         | string  | null: false               |
+| first_name_read    | string  | null: false               |
+| birthday           | date    | null: false               |
+
 
 ### Association
 
 - has_many :items
 - has_many :orders
 
-# Itemsテーブル
-item
-text
-price
-category_id
-status_id
-charge_id
-prefecture_id
-days_id
-user
+## Itemsテーブル
+
+|  Column       |  Type      |  Options                       |
+| ------------- | ---------- | ------------------------------ |
+| item          | string     | null: false                    |
+| text          | text       | null: false                    |
+| price         | integer    | null: false                    |
+| category_id   | integer    | null: false                    |
+| status_id     | integer    | null: false                    |
+| charge_id     | integer    | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| days_id       | integer    | null: false                    |
+| user          | references | null: false, foreign_key: true |
 
 ### Association
 - has_one :order
 - belongs_to :user
 
-# Ordersテーブル
-user
-item
+## Ordersテーブル
+
+|  Column       |  Type      |  Options                       |
+| ------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -39,14 +50,17 @@ item
 - belongs_to :item
 - has_one :address
 
-# Addressesテーブル
-postal_cord
-prefecture_id
-city
-address
-building_name
-phone_number
-order
+## Addressesテーブル
+
+|  Column          |  Type      |  Options                       |
+| ---------------- | ---------- | ------------------------------ |
+| postal_cord      | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| city             | string     | null: false                    |
+| address          | string     | null: false                    |
+| building_name    | string     |                                |
+| phone_number     | string     | null: false                    |
+| order            | references | null: false, foreign_key: true |
 
 ### Association
 
