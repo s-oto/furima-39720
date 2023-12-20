@@ -24,13 +24,13 @@
 |  Column       |  Type      |  Options                       |
 | ------------- | ---------- | ------------------------------ |
 | item          | string     | null: false                    |
-| text          | text       | null: false                    |
+| description   | text       | null: false                    |
 | price         | integer    | null: false                    |
 | category_id   | integer    | null: false                    |
 | status_id     | integer    | null: false                    |
 | charge_id     | integer    | null: false                    |
 | prefecture_id | integer    | null: false                    |
-| days_id       | integer    | null: false                    |
+| day_id        | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
 
 ### Association
@@ -54,9 +54,7 @@
 
 |  Column          |  Type      |  Options                       |
 | ---------------- | ---------- | ------------------------------ |
-| card_info        | string     | null: false                    |
-| year             | integer    | null: false                    |
-| security         | integer    | null: false                    |
+| postal_cord      | integer    | null: false                    |
 | prefecture_id    | integer    | null: false                    |
 | city             | string     | null: false                    |
 | street           | string     | null: false                    |
