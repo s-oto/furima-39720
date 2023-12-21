@@ -24,13 +24,21 @@
 |  Column       |  Type      |  Options                       |
 | ------------- | ---------- | ------------------------------ |
 | item          | string     | null: false                    |
+<<<<<<< Updated upstream
 | description   | text       | null: false                    |
+=======
+| text          | text       | null: false                    |
+>>>>>>> Stashed changes
 | price         | integer    | null: false                    |
 | category_id   | integer    | null: false                    |
 | status_id     | integer    | null: false                    |
 | charge_id     | integer    | null: false                    |
 | prefecture_id | integer    | null: false                    |
+<<<<<<< Updated upstream
 | day_id        | integer    | null: false                    |
+=======
+| days_id       | integer    | null: false                    |
+>>>>>>> Stashed changes
 | user          | references | null: false, foreign_key: true |
 
 ### Association
@@ -54,11 +62,19 @@
 
 |  Column          |  Type      |  Options                       |
 | ---------------- | ---------- | ------------------------------ |
+<<<<<<< Updated upstream
 | postal_cord      | integer    | null: false                    |
 | prefecture_id    | integer    | null: false                    |
 | city             | string     | null: false                    |
 | street           | string     | null: false                    |
 | building_name    | string     | null: false                    |
+=======
+| postal_cord      | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| city             | string     | null: false                    |
+| address          | string     | null: false                    |
+| building_name    | string     |                                |
+>>>>>>> Stashed changes
 | phone_number     | string     | null: false                    |
 | order            | references | null: false, foreign_key: true |
 
