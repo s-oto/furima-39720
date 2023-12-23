@@ -7,7 +7,6 @@ class User < ApplicationRecord
          with_options presence: true do
           validates :nickname
           validates :birthday
-          validates :password
         end
 
         PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze

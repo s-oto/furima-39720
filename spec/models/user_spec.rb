@@ -5,7 +5,46 @@ RSpec.describe User, type: :model do
     @user = FactoryBot.build(:user)
   end
 
-  describe "ユーザー新規登録" do
+  describe "ユーザ新規登録できる時" do
+    it "全ての情報が入力されていれば登録できる" do
+      expect(@user).to be_valid
+    end
+    it "nicknameが入力されていれば登録できる" do
+      @user.nickname = "test"
+      expect(@user).to be_valid
+    end
+    it "emailが入力されていれば登録できる" do
+      @user.email = "sample@gmail.com"
+      expect(@user).to be_valid
+    end
+    it "passwordとpassword_confirmationが6文字以上で英数字が含まれているなら登録できる" do
+      @user.password = "123abc"
+      @user.password_confirmation = @user.password
+      expect(@user).to be_valid
+    end
+    it "first_nameが全角で入力されていれば登録できる" do
+      @user.first_name = "試験"
+      expect(@user).to be_valid
+    end
+    it "last_nameが全角で入力されていれば登録できる" do
+      @user.last_name = "試験"
+      expect(@user).to be_valid
+    end
+    it "first_name_readが全角カタカナで入力されていれば登録できる" do
+      @user.first_name_read = "シケンヨミ"
+      expect(@user).to be_valid
+    end
+    it "last_name_readが全角カタカナで入力されていれば登録できる" do
+      @user.last_name_read = "シケンヨミ"
+      expect(@user).to be_valid
+    end
+    it "birthdayが入力されていれば登録できる" do
+      @user.birthday = "2000-01-01"
+      expect(@user).to be_valid
+    end
+  end
+
+  describe "ユーザー新規登録できない時" do
     it 'nicknameが空では登録できない' do
       @user.nickname = ""
       @user.valid?
@@ -46,6 +85,12 @@ RSpec.describe User, type: :model do
     it "passwordが数字だけだと登録できない" do
       @user.password = "123456"
       @user.password_confirmation = "123456"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password is invalid")
+    end
+    it "半角英数字以外の文字が含まれている場合登録できない" do
+      @user.password = "!!!!!!"
+      @user.password_confirmation = "!!!!!!"
       @user.valid?
       expect(@user.errors.full_messages).to include("Password is invalid")
     end
