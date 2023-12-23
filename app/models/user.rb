@@ -7,22 +7,19 @@ class User < ApplicationRecord
          with_options presence: true do
           validates :nickname
           validates :birthday
+          validates :password
         end
-      
-        with_options presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: 'Include both letters and numbers'} do
-          validates :password, presence: false
-        end
+
+        PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+        validates_format_of :password, with: PASSWORD_REGEX
       
         with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/, message: 'Full-width characters' } do
-          validates :first_name, presence: true
-          validates :last_name, presence: true
+          validates :first_name
+          validates :last_name
         end
       
         with_options presence: true, format: { with: /\A[ァ-ン]+\z/, message: 'Full-width katakana characters' } do
-          validates :last_name_read, presence: true
-          validates :first_name_read, presence: true
+          validates :last_name_read
+          validates :first_name_read
         end
-      
-        has_many :items
-        has_many :orders
 end
