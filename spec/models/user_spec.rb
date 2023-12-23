@@ -5,6 +5,7 @@ RSpec.describe User, type: :model do
     @user = FactoryBot.build(:user)
   end
 
+describe 'ユーザー新規登録' do
   context "ユーザ新規登録できる時" do
     it "全ての情報が入力されていれば登録できる" do
       expect(@user).to be_valid
@@ -150,4 +151,5 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include "Birthday can't be blank"
     end
   end
+ end
 end
