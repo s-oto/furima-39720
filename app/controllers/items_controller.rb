@@ -9,11 +9,20 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  # def create
+  #   @item = Item.create(item_params)
+  #   if @item.valid?
+  #     redirect_to root_path
+  #   else
+  #     render :new
+  #   end
+  # end
   def create
     @item = Item.create(item_params)
     if @item.valid?
       redirect_to root_path
     else
+      flash[:error] = @item.errors.full_messages.join(", ")
       render :new
     end
   end
