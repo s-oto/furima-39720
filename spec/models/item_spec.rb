@@ -78,35 +78,40 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Price Out of setting range")
     end
-    it "category_idが空だと出品できない" do
-      @item.category_id = ""
+    it "category_idが1だと出品できない" do
+      @item.category_id = "1"
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category can't be blank")
+      expect(@item.errors.full_messages).to include("Category Select")
     end
-    it "status_idが空だと出品できない" do
-      @item.status_id = ""
+    it "status_idが1だと出品できない" do
+      @item.status_id = "1"
       @item.valid?
       expect(@item.errors.full_messages).to include("Status Select")
     end
-    it "charge_idが空だと出品できない" do
-      @item.charge_id = ""
+    it "charge_idが1だと出品できない" do
+      @item.charge_id = "1"
       @item.valid?
       expect(@item.errors.full_messages).to include("Charge Select")
     end
-    it "day_idが空だと出品できない" do
-      @item.day_id = ""
+    it "day_idが1だと出品できない" do
+      @item.day_id = "1"
       @item.valid?
-      expect(@item.errors.full_messages).to include("Day can't be blank")
+      expect(@item.errors.full_messages).to include("Day Select")
     end
-    it "prefegture_idが空だと出品できない" do
-      @item.prefecture_id = ""
+    it "prefegture_idが1だと出品できない" do
+      @item.prefecture_id = "1"
       @item.valid?
-      expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+      expect(@item.errors.full_messages).to include("Prefecture Select")
     end
     it "imageが添付されていないと出品できない" do
       @item.image = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Image can't be blank")
+    end
+    it "userが紐づいていないと出品できない" do
+      @item.user = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("User must exist")
     end
   end
 end
